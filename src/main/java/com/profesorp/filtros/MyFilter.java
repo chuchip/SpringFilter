@@ -44,6 +44,12 @@ public class MyFilter implements Filter{
 			chain.doFilter(httpRequest, myResponse);
 			return;
 		}
+                if (httpRequest.getRequestURL().toString().endsWith("/none"))	{   
+                    myResponse.setStatus(HttpStatus.BAD_GATEWAY.value());
+		    myResponse.getOutputStream().flush();
+		    myResponse.getOutputStream().println("-- I don't have any to tell you --");
+                    return; // No hago nada.
+                }
 		if (httpRequest.getRequestURL().toString().endsWith("/cancel"))	{			
 			myResponse.addHeader("PROFE", "CANCEL");
 			myResponse.setStatus(HttpStatus.BAD_REQUEST.value());
