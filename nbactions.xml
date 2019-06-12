@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
         <action>
-            <actionName>run</actionName>
+            <actionName>debug</actionName>
             <packagings>
                 <packaging>jar</packaging>
             </packagings>
@@ -10,8 +10,9 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath com.profesorp.filtros.FiltrosApplication</exec.args>
+                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath com.profesorp.filtros.FiltrosApplication</exec.args>
                 <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
             </properties>
         </action>
     </actions>

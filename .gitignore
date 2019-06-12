@@ -18,7 +18,7 @@ HELP.md
 *.ipr
 
 ### NetBeans ###
-/nbactions
+/nbactions.xml
 /nbproject/private/
 /nbbuild/
 /dist/
