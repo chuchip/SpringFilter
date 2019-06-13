@@ -18,6 +18,8 @@ public class PrincipalController {
 	public String entryOther(HttpServletRequest request,HttpServletResponse response)
 	{	
 		sillyLog.debug("In entryOther");
+		if (response.getHeader("CAKE")!=null)
+			sillyLog.debug("Header contains CAKE: "+response.getHeader("CAKE"));
 		if (response.getHeader("PROFE")!=null)
 			sillyLog.debug("Header contains PROFE: "+response.getHeader("PROFE"));
 		
